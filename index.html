@@ -33,18 +33,26 @@
     <script src="js/listeners.js"></script>
     <script src="js/listeners-forms.js"></script>
     
-    <!-- Inicialização -->
     <script>
         // Inicializar aplicação
         async function initApp() {
-            // Carregar todos os templates primeiro
-            await HTMLLoader.loadAllTemplates();
-            
-            // Depois inicializar a aplicação
-            await Storage.init();
-            await appState.init();
-            
-            render();
+            try {
+                console.log('Iniciando aplicação...');
+                // Carregar todos os templates primeiro
+                await HTMLLoader.loadAllTemplates();
+                console.log('Templates carregados.');
+                
+                // Depois inicializar a aplicação
+                await Storage.init();
+                await appState.init();
+                console.log('Estado inicializado.');
+                
+                render();
+                console.log('Aplicação renderizada.');
+            } catch (error) {
+                console.error('Erro crítico na inicialização:', error);
+                document.getElementById('app').innerHTML = `<div style="padding: 20px; color: red;">Erro ao carregar a aplicação. Verifique o console.</div>`;
+            }
         }
         
         // Chamar ao carregar a página

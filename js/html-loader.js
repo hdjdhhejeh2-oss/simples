@@ -10,7 +10,7 @@ const HTMLLoader = {
     
     try {
       const response = await fetch(`html/${name}.html`);
-      if (!response.ok) throw new Error(`Não conseguiu carregar ${name}.html`);
+      if (!response.ok) throw new Error(`Erro ao carregar ${name}.html`);
       const html = await response.text();
       this.templates[name] = html;
       return html;
