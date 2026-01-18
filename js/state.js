@@ -22,10 +22,6 @@ const appState = {
             this.isAuthenticated = true;
             this.user = auth.user;
             console.log('✓ Sessão restaurada:', auth.user);
-            // Sincronizar com servidor imediatamente após login
-            if (typeof dataSync !== 'undefined') {
-                await dataSync.syncFromServer();
-            }
         }
     },
 
@@ -38,21 +34,13 @@ const appState = {
         this.isPublished = config.isPublished !== undefined ? config.isPublished : (localStorage.getItem('ipial_published') === 'true' ? true : false);
     },
 
-    // Salvar dados no armazenamento E servidor (servidor é fonte única de verdade)
+    // Salvar dados no armazenamento
     async save() {
-        // 1. Salvar no localStorage primeiro para resposta rápida
+        // 1. Salvar no localStorage
         await Storage.saveCandidates(this.candidates);
         await Storage.saveLogs(this.logs);
         await Storage.saveConfig({ isPublished: this.isPublished });
         localStorage.setItem('ipial_published', this.isPublished.toString());
-        
-        // 2. Sincronizar com servidor imediatamente após salvar
-        if (typeof dataSync !== 'undefined') {
-            console.log('[State] Salvando com published:', this.isPublished);
-            await dataSync.syncToServer();
-            // 3. Recarregar dados do servidor (servidor é autoridade final)
-            await dataSync.syncFromServer();
-        }
     },
 
     // Fazer login e guardar sessão

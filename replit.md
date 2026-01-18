@@ -4,9 +4,9 @@
 This is an exam management system (Sistema de Gestão de Exames de Acesso) for IPIAL. It provides a web interface for managing exam candidates, with features for registration, viewing results, and administrative functions.
 
 ## Project Architecture
-- **Backend**: Node.js with Express.js serving on port 5000
-- **Frontend**: Static HTML/CSS/JavaScript served by the Express app
-- **Data Storage**: JSON file-based storage in `/data/ipial_data.json`
+- **Backend**: Node.js serving static files only
+- **Frontend**: Static HTML/CSS/JavaScript with data stored in **localStorage**
+- **Data Storage**: Client-side localStorage (ipial_candidates, ipial_logs, etc.)
 
 ## Project Structure
 ```
