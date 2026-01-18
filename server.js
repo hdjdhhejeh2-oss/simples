@@ -5,7 +5,8 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0';
 const DATA_FILE = path.join(__dirname, 'data', 'ipial_data.json');
 
 // Criar pasta de dados se não existir
@@ -405,7 +406,7 @@ app.post('/api/reset', (req, res) => {
 // INICIAR SERVIDOR
 // ============================================
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`
 ╔════════════════════════════════════════════╗
 ║   IPIAL - Servidor de Sincronização       ║
