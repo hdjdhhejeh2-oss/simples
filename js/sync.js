@@ -6,7 +6,7 @@
 
 class DataSync {
   constructor() {
-    this.SERVER_URL = 'http://localhost:3000';
+    this.SERVER_URL = window.location.origin;
     this.SYNC_INTERVAL = 15000; // 15 segundos (mais frequente para dados em tempo real)
     this.syncTimer = null;
   }
