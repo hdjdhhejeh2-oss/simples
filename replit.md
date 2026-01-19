@@ -27,5 +27,11 @@ Sistema de Gestão de Exames de Acesso para o IPIAL. Versão puramente frontend 
 └── replit.md          # Documentação
 ```
 
+## Running in Replit
+The application is served using `npx serve` on port 5000. The workflow "Start application" handles this automatically.
+
+## Deployment
+Static deployment configured - serves all files from the root directory.
+
 ## Como usar
 Basta abrir o arquivo `index.html` em qualquer navegador moderno. Os dados serão salvos localmente no seu computador.

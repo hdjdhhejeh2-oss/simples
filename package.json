@@ -1,0 +1,15 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "## 📋 Descrição O **IPIAL - Sistema de Gestão de Exames** é uma aplicação web moderna e leve desenvolvida para o **Instituto Politécnico Industrial \"Alda Lara\"**. O sistema permite a gestão completa de candidatos aos exames de acesso, incluindo registo, lançamento de notas, consulta de resultados e geração de relatórios estatísticos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.5"
+  }
+}
